@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnirBite - Login</title>
+    <style>
+            @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap");
+
+            :root {
+                --brand: #e23744;
+                --brand-dark: #b51b29;
+                --ink: #1f1f1f;
+                --muted: #6b6b6b;
+                --card: #ffffff;
+                --line: #ececec;
+                --bg: #fff7f8;
+                --shadow: 0 28px 60px rgba(18, 18, 18, 0.2);
+                --radius: 18px;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                font-family: "Poppins", "Segoe UI", sans-serif;
+                background: radial-gradient(circle at 15% 15%, #ffe4e6 0%, transparent 45%),
+                    radial-gradient(circle at 90% 0%, #ffd3d7 0%, transparent 40%),
+                    var(--bg);
+                color: var(--ink);
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 28px 18px;
+            }
+
+            .frame {
+                width: min(980px, 100%);
+                background: var(--card);
+                border-radius: var(--radius);
+                box-shadow: var(--shadow);
+                overflow: hidden;
+                display: grid;
+                grid-template-columns: 1fr 0.95fr;
+            }
+
+            .visual {
+                padding: 36px;
+                background: linear-gradient(135deg, #fff0f2 0%, #fff8f9 60%, #ffecef 100%);
+                display: flex;
+                flex-direction: column;
+                gap: 18px;
+                justify-content: center;
+            }
+
+            .logo {
+                font-family: "Playfair Display", "Georgia", serif;
+                font-size: 28px;
+                font-weight: 700;
+                color: var(--brand);
+                letter-spacing: 0.4px;
+            }
+
+            .visual h1 {
+                margin: 0;
+                font-size: clamp(26px, 4vw, 36px);
+                font-family: "Playfair Display", "Georgia", serif;
+                color: #2b2b2b;
+            }
+
+            .visual p {
+                color: var(--muted);
+                line-height: 1.6;
+                margin: 0;
+            }
+
+            .hero-photo {
+                width: min(180px, 100%);
+                height: 180px;
+                border-radius: 16px;
+                object-fit: cover;
+                box-shadow: 0 16px 28px rgba(226, 55, 68, 0.2);
+                border: 2px solid #ffe3e6;
+            }
+
+            .promo {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 10px;
+            }
+
+            .promo-card {
+                background: #fff;
+                border: 1px solid var(--line);
+                border-radius: 12px;
+                padding: 10px;
+                text-align: center;
+                font-size: 12px;
+            }
+
+            .promo-card strong {
+                display: block;
+                font-size: 15px;
+                color: var(--brand);
+            }
+
+            .form-area {
+                padding: 40px 38px;
+                display: flex;
+                flex-direction: column;
+                gap: 18px;
+                background: #fff;
+            }
+
+            .form-area h2 {
+                margin: 0;
+                font-size: 24px;
+                font-weight: 600;
+            }
+
+            .form-area p {
+                margin: 0;
+                color: var(--muted);
+                font-size: 14px;
+            }
+
+            form {
+                display: grid;
+                gap: 14px;
+            }
+
+            label {
+                font-size: 13px;
+                font-weight: 600;
+                display: block;
+                margin-bottom: 6px;
+            }
+
+            .control {
+                border: 1px solid var(--line);
+                background: #fff;
+                border-radius: 12px;
+                padding: 12px 14px;
+                display: flex;
+                align-items: center;
+            }
+
+            .control input {
+                border: none;
+                outline: none;
+                width: 100%;
+                font-size: 14px;
+                font-family: inherit;
+            }
+
+            .form-row {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                font-size: 12px;
+                color: var(--muted);
+            }
+
+            .form-row a {
+                color: var(--brand);
+                text-decoration: none;
+                font-weight: 600;
+            }
+
+            .form-row a:hover {
+                text-decoration: underline;
+            }
+
+            .btn {
+                border: none;
+                padding: 12px 16px;
+                border-radius: 12px;
+                font-size: 14px;
+                font-weight: 600;
+                cursor: pointer;
+            }
+
+            .btn-primary {
+                background: var(--brand);
+                color: #fff;
+                box-shadow: 0 14px 24px rgba(226, 55, 68, 0.25);
+            }
+
+            .btn-outline {
+                background: #fff;
+                color: var(--brand);
+                border: 1px solid #ffd5d9;
+            }
+
+            .divider {
+                display: grid;
+                grid-template-columns: 1fr auto 1fr;
+                gap: 10px;
+                align-items: center;
+                font-size: 12px;
+                color: #9c9c9c;
+            }
+
+            .divider span {
+                height: 1px;
+                background: var(--line);
+            }
+
+            .footer-note {
+                font-size: 12px;
+                color: var(--muted);
+                text-align: center;
+            }
+
+            @media (max-width: 900px) {
+                .frame {
+                    grid-template-columns: 1fr;
+                }
+
+                .visual {
+                    padding: 30px 26px;
+                }
+
+                .hero-photo {
+                    width: 160px;
+                    height: 160px;
+                }
+
+                .promo {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+            }
+
+            @media (max-width: 600px) {
+                .promo {
+                    grid-template-columns: 1fr;
+                }
+
+                .hero-photo {
+                    width: 140px;
+                    height: 140px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="frame">
+            <section class="visual">
+                <div class="logo">AnirBite</div>
+                <h1>Fast, fresh, and delivered with care.</h1>
+                <p>Find your favorite meals, explore new flavors, and get them delivered to your doorstep.</p>
+                <img class="hero-photo" src="https://res.cloudinary.com/dw9p9lsvd/image/upload/v1770917312/file_00000000486c71fa872af21f31669c1c_ri8ger.png" alt="Anirban with food">
+                <div class="promo">
+                    <div class="promo-card">
+                        <strong>500+</strong>
+                        Handpicked cafes
+                    </div>
+                    <div class="promo-card">
+                        <strong>25 min</strong>
+                        Avg delivery time
+                    </div>
+                    <div class="promo-card">
+                        <strong>4.8★</strong>
+                        Trusted ratings
+                    </div>
+                </div>
+            </section>
+
+            <section class="form-area">
+                <div>
+                    <h2>Login to AnirBite</h2>
+                    <p>Use your email or phone number to continue.</p>
+                </div>
+
+                <form>
+                    <div>
+                        <label for="identifier">Email or phone</label>
+                        <div class="control">
+                            <input id="identifier" type="text" placeholder="anir@email.com or +91 8809491852" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="password">Password</label>
+                        <div class="control">
+                            <input id="password" type="password" placeholder="Enter your password" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label>
+                            <input type="checkbox" name="remember"> Remember me
+                        </label>
+                        <a href="#">Forgot password?</a>
+                    </div>
+
+                    <button class="btn btn-primary" type="submit">Log in</button>
+
+                    <div class="divider">
+                        <span></span>
+                        or
+                        <span></span>
+                    </div>
+
+                    <button class="btn btn-outline" type="button">Continue with Google</button>
+                </form>
+
+                <p class="footer-note">New to AnirBite? <a href="#">Create an account</a> to start exploring.</p>
+            </section>
+        </div>
+    </body>
+    </html>
